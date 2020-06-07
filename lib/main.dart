@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:markup/utilities/StringPicker.dart';
+import 'package:markup/utilwidgets/progressbar.dart';
+import 'package:markup/animations/fade_in_out_animation.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Blue Wolf',
       theme: ThemeData(
-        primarySwatch: Colors.blue, 
+        primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Blue Home'),
     );
@@ -30,11 +33,22 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Chapters'),
-      ),
-      body: Center(
-        child: Text('History'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: 350,
+            margin: EdgeInsets.only(bottom: 130),
+            alignment: Alignment.center,
+            child: FadeInOutAnimation(),
+          ),
+          Column(
+            children: [
+              StringPicker(),
+              ProgressBar()
+            ],
+          )
+        ],
       ),
     );
   }
